@@ -1,0 +1,45 @@
+.root {
+	animation-name: delayShow;
+	animation-duration: 0.5s;
+	animation-delay: 0.5s;
+	pointer-events: none;
+}
+@keyframes delayShow {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+.root::before,
+.root:after {
+	content: "";
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width: 80px;
+	height: 80px;
+	border: 4px solid;
+	border-radius: 50%;
+}
+.root::before {
+	border-color: gray;
+	transform: translate(-50%, -50%);
+}
+.root::after {
+	border-color: transparent;
+	border-left-color: white;
+	animation-name: rotateWithTranslate;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+@keyframes rotateWithTranslate {
+	0% {
+		transform: translate(-50%, -50%) rotate(0deg);
+	}
+	100% {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}
